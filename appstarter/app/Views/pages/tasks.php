@@ -1,23 +1,9 @@
 <?php
-$tasks = json_encode([
-    [
-        'id' => "1",
-        'user_name' => "Marcos",
-        'category' => "DEV",
-        'description' => "Desenvolvimento de projeto para este na Anglo Vestibulares",
-        'date' => date('d/m/Y')
-    ],
-    [
-        'id' => "2",
-        'user_name' => "José",
-        'category' => "TEST",
-        'description' => "Teste de projeto para este na Anglo Vestibulares",
-        'date' => date('d/m/Y')
-    ]
-]);
-$tasks = json_decode($tasks);
+ \Config\Services::validation()->listErrors()
+
 ?>
 <div class="container ">
+<h1 class="text-center">Lista de Tarefas cadastradas</h1>
     <table class='table'>
         <thead>
             <tr>
@@ -32,14 +18,22 @@ $tasks = json_decode($tasks);
         <tbody>
             <?php
             foreach ($tasks as $task) {
+                
+                $task = (object) $task;
 
+                $date_to_finish = date('d/m/Y H:i:s', strtotime($task->data_to_finish));
+                $description = substr($task->body, 0, 30);
                 echo "<tr>
          <th scope='row'>{$task->id}</th>
-         <td>$task->description</td>
-         <td><span class='badge bg-success'>{$task->category}</span></td>
-         <td>{$task->date}</td>
-         <td>@{$task->user_name}</td>
-         <td><a href='/task/{$task->id}'><i class='fas fa-eye'></i></a></td>
+         <td>{$description}...</td>
+         <td><span class='badge bg-success'>{$task->category_name}</span></td>
+         <td>{$date_to_finish}</td>
+         <td>@{$task->ownder_task}</td>
+         <td>
+         <a href='/task/{$task->id}'><i class='fas fa-eye' style='color:green'></i></a>
+         <a href='edit/task/{$task->id}'><i class='fas fa-pen gren'></i></a>
+         <a href='delete/task/{$task->id}' ><i class='fas fa-trash' style='color:red'></i></a>
+         </td>
          </tr>";
             }
             ?>

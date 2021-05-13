@@ -1,8 +1,7 @@
 <div class="container-sm">
-    <h1 class="text-center">Alterar Tarefa</h1>
+    <h1 class="text-center">Cadastre uma nova Tarefa</h1>
     <div>
-        <form class="row g-3" action="/news/create" method="post">
-            <?= csrf_field() ?>
+        <form class="row g-3">
             <div class="col-md-6">
                 <label for="validationServer01" class="form-label">Titulo</label>
                 <input type="text" class="form-control " id="validationServer01" placeholder="Titulo da Tarefa" required>
@@ -14,9 +13,6 @@
                 <label for="validationServerUsername" class="form-label">Responsavel pela Tarefa</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <?php 
-                        var_dump($owners);
-                    ?>
                     <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback" required>
                         <option selected disabled value="">Selecione um responsavel...</option>
                         <option>...</option>

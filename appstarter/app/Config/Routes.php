@@ -33,8 +33,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('(:any)', 'Pages::view/$1');
-$routes->get('(:any)', 'Tasks::getTasks/$1');
+// $routes->get('(:any)', 'Pages::view/$1');
+$routes->match(['post'], 'task/create', 'Tasks::create');
+// $routes->get('(:any)', 'Tasks::view/$1');
+$routes->get('/tasks', 'Tasks::index');
+$routes->get('/add-tasks', 'Tasks::addTask');
 
 /*
  * --------------------------------------------------------------------

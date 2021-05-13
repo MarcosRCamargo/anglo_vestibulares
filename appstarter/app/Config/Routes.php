@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('(:any)', 'Pages::view/$1');
+$routes->get('(:any)', 'Tasks::getTasks/$1');
 
 /*
  * --------------------------------------------------------------------

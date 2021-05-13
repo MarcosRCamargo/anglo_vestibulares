@@ -45,9 +45,5 @@ $tasks = json_decode($tasks);
             ?>
         </tbody>
     </table>
-    <?php
-    $var = date('d-m-Y h:i:s');
-    $name = str_replace([':', ' ', '-'], '_', $var). "_tasks.php";
-    var_dump($var, $name)
-    ?>
+    
 </div>

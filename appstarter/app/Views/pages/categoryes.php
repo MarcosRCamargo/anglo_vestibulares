@@ -13,9 +13,11 @@ $tasks = json_decode($tasks);
 ?>
 
 <div class="container ">
-    <div class="fluid">
+<h1 class="text-center">Categorias</h1>
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a href="/add_category">
-            <button type="button" class="btn btn-primary add-category">Adicionar Categoria</button>
+            <button type="button" class="btn btn-primary add-category align-left">Adicionar Categoria</button>
         </a>
     </div>
     <table class='table'>
@@ -23,6 +25,7 @@ $tasks = json_decode($tasks);
             <tr>
                 <th scope='col'>#</th>
                 <th scope='col'>Categoria</th>
+                <th scope='col'>Opções</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +35,7 @@ $tasks = json_decode($tasks);
                 echo "<tr>
          <th scope='row'>{$task->id}</th>
          <td>$task->category</td>
+         <td><a href='/category/{$task->id}'><i class='fas fa-pen'></i></a></td>
          </tr>";
             }
             ?>

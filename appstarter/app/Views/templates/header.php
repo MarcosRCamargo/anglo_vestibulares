@@ -26,11 +26,9 @@
         </ul>
 
         <div class="text-end">
-          <button type="button" class="btn btn-warning">Nova Tarefa</button>
+          <a href="/add_task">
+          <button type="button" class="btn btn-warning">Nova Tarefa</button></a>
         </div>
       </div>
     </div>
   </header>
-
-    <h1 class="text-center"><?= esc($title) ?></h1>
-    

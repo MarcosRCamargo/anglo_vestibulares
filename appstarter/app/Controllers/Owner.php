@@ -6,16 +6,20 @@ use App\Models\CategoryModel;
 use App\Models\OwnerModel;
 use App\Models\TaskModel;
 use CodeIgniter\Controller;
-use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 
-class Tasks extends Controller
+class Owner extends Controller
 {
 	
-	public function index()
+	public function index($page = 'tasks')
 	{
 		$model = new TaskModel();
 
 		$data['tasks'] = $model->getTaskList();
+
+
+		echo view('templates/header', $data);
+		echo view('pages/' . $page, $data);
+		echo view('templates/footer', $data);
 	}
 
 	public function show($id)
@@ -31,7 +35,7 @@ class Tasks extends Controller
 		echo view('pages/task', $data);
 		echo view('templates/footer', $data);
 	}
-	public function view($page = 'tasks')
+	public function view($page = 'task')
 	{
 		if (!is_file(APPPATH . '/Views/pages/' . $page . '.php')) {
 			// Whoops, we don't have a page for that!

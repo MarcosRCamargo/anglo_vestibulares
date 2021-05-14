@@ -26,7 +26,7 @@
         </ul>
 
         <div class="text-end">
-          <a href="/add-task">
+          <a href="task/add">
           <button type="button" class="btn btn-warning">Nova Tarefa</button></a>
         </div>
       </div>

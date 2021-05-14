@@ -33,12 +33,31 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->match(['get', 'post'], '/task/create', 'Tasks::create');
-$routes->get('/tasks', 'Tasks::view');
-$routes->get('/task', 'Tasks::index');
-$routes->get('/task/add', 'Tasks::add');
-$routes->get('/task/edit', 'Tasks::edit');
-$routes->get('/task/delete', 'Tasks::delete');
+
+//Tarefas
+
+$routes->get('/tasks', 'Task::index');
+$routes->get('/task/(:segment)', 'Task::show/$1');
+$routes->match(['get', 'post'], '/task/add', 'Task::add');
+$routes->match(['get', 'post'], '/task/create', 'Task::create');
+$routes->match(['get', 'post'], '/task/update', 'Task::update');
+$routes->match(['get', 'post'], '/task/edit/', 'Task::edit');
+$routes->match(['get', 'post'], '/task/delete', 'Task::delete');
+
+//Categorias
+$routes->get('/categoryes', 'Category::index');
+$routes->get('/Category', 'Category::show');
+$routes->match(['get', 'post'], '/category/create', 'Category::create');
+$routes->match(['get', 'post'], '/category/cdit', 'Category::edit');
+$routes->match(['get', 'post'], '/category/celete', 'Category::delete');
+
+//Responsáveis
+$routes->get('/owners', 'Owner::index');
+$routes->get('/owner', 'Owner::show');
+$routes->match(['get', 'post'], '/owner/create', 'Owner::create');
+$routes->match(['get', 'post'], '/owner/edit', 'Owner::edit');
+$routes->match(['get', 'post'], '/owner/delete', 'Owner::delete');
+
 
 /*
  * --------------------------------------------------------------------

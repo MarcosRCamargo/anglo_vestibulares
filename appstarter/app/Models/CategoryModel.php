@@ -8,14 +8,13 @@ class CategoryModel extends Model
 {
     protected $table = 'categoryes';
     public function getCategoryes($id = false)
-{
-    if ($id === false)
     {
-        return $this->findAll();
-    }
+        if ($id === false) {
+            return $this->findAll();
+        }
 
-    return $this->asArray()
-                ->where(['id' => $id])
-                ->first();
-}
+        return $this->asArray()
+            ->where(['id' => $id])
+            ->first();
+    }
 }

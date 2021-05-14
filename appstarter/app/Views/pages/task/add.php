@@ -1,5 +1,5 @@
 <div class="container-sm">
-    <h1 class="text-center">Alterar Tarefa</h1>
+    <h1 class="text-center">Nova Tarefa</h1>
     <div>
         <form class="row g-3" action="/task/create" method="post">
             <?= csrf_field() ?>
@@ -21,9 +21,7 @@
                             <option value="<?= $owner['id'] ?>"><?= $owner['name'] ?></option>
                             <?php endforeach; ?>
                     </select>
-                    <!-- <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                        Por favor Selecione um responsável.
-                    </div> -->
+
                 </div>
             </div>
             <div class="col-md-6">
@@ -32,9 +30,6 @@
                     <span class="input-group-text">Descrição da Tarefa</span>
                     <textarea class="form-control" aria-label="With textarea" name="body"></textarea>
                 </div>
-                <!-- <div id="validationServer03Feedback" class="invalid-feedback">
-                    Por favor preencha a descrição.
-                </div> -->
             </div>
             <div class="col-md-3">
                 <label for="validationServer04" class="form-label">Categoria</label>

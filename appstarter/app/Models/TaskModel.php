@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class TaskModel extends Model
 {
     protected $table = 'tasks';
+    protected $allowedFields = ['title', 'body', 'data_to_finish', 'id_owner', 'id_category'];
     public function getTasks($id = false)
     {
         if ($id === false) {
@@ -20,11 +21,10 @@ class TaskModel extends Model
     public function getTaskList()
     {
         $db      = \Config\Database::connect();
-		$query = $db->query("SELECT t.*, c.title as category_name, o.name as ownder_task FROM tasks as t 
+        $query = $db->query("SELECT t.*, c.title as category_name, o.name as ownder_task FROM tasks as t 
 			INNER JOIN categoryes as c ON t.id_category = c.id
 			INNER JOIN owners_tasks as o ON t.id_owner = o.id");
-		$results = $query->getResult();
+        $results = $query->getResult();
         return $results;
     }
-  
 }

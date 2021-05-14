@@ -1,4 +1,3 @@
-owner
 <?php
 
 namespace App\Models;

@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class CategoryModel extends Model
 {
-    protected $table = 'category';
+    protected $table = 'categoryes';
     public function getCategoryes($id = false)
 {
     if ($id === false)

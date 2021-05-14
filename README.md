@@ -1,4 +1,4 @@
-# api_user
+# Gestão de Tarefas
 
 ## Descrição do Projeto
 <p align="center">Gestão de Tarefas com CodeIgniter.</p>

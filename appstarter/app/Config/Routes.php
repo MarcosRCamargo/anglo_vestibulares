@@ -35,8 +35,10 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->match(['get', 'post'], '/task/create', 'Tasks::create');
 $routes->get('/tasks', 'Tasks::view');
-$routes->get('/add-task', 'Tasks::addTask');
-$routes->get('/edit-task', 'Tasks::editTask/$1');
+$routes->get('/task', 'Tasks::index');
+$routes->get('/task/add', 'Tasks::add');
+$routes->get('/task/edit', 'Tasks::edit');
+$routes->get('/task/delete', 'Tasks::delete');
 
 /*
  * --------------------------------------------------------------------

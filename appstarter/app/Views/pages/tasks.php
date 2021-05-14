@@ -17,6 +17,7 @@
         </thead>
         <tbody>
             <?php
+            // var_dump($tasks);die;   
             foreach ($tasks as $task) {
 
                 $task = (object) $task;
@@ -31,8 +32,8 @@
                 <td>@{$task->ownder_task}</td>
                 <td>
                 <a href='/task/{$task->id}'><i class='fas fa-eye' style='color:green'></i></a>
-                <a href='edit/task/{$task->id}'><i class='fas fa-pen gren'></i></a>
-                <a href='delete/task/{$task->id}' ><i class='fas fa-trash' style='color:red'></i></a>
+                <a href='/edit-task/{$task->id}'><i class='fas fa-pen gren'></i></a>
+                <a href='/delete-task/{$task->id}' ><i class='fas fa-trash' style='color:red'></i></a>
                 </td>
                 </tr>";
             }

@@ -1,10 +1,10 @@
 <div class="container-sm">
-    <h1 class="text-center">Detalhe da Tarefa</h1>
+    <h1 class="text-center">Cadastre uma nova Tarefa</h1>
     <div>
         <form class="row g-3">
             <div class="col-md-6">
                 <label for="validationServer01" class="form-label">Titulo</label>
-                <input type="text" class="form-control " id="validationServer01" placeholder="Titulo da Tarefa" value="<?= $task->title ?>">
+                <input type="text" class="form-control " id="validationServer01" placeholder="Titulo da Tarefa" required>
                 <!-- <div class="valid-feedback">
                     Preenchido!
                 </div> -->
@@ -15,23 +15,32 @@
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
                     <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback" required>
                         <option selected disabled value="">Selecione um responsavel...</option>
-                        <option value="<?= $task->id_owner ?>" <?php if($task->id_owner) echo "selected";?>></option>
+                        <option>...</option>
                     </select>
+                    <!-- <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                        Por favor Selecione um responsável.
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="validationServer03" class="form-label">Descrição</label>
                 <div class="input-group">
                     <span class="input-group-text">Descrição da Tarefa</span>
-                    <textarea class="form-control" aria-label="With textarea" placeholder="<?= $task->body ?>"></textarea>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
                 </div>
+                <!-- <div id="validationServer03Feedback" class="invalid-feedback">
+                    Por favor preencha a descrição.
+                </div> -->
             </div>
             <div class="col-md-3">
                 <label for="validationServer04" class="form-label">Categoria</label>
                 <select class="form-select " id="validationServer04" aria-describedby="validationServer04Feedback" required>
                     <option selected disabled value="">Escolha...</option>
-                    <option value="<?= $task->id_category ?>" <?php if($task->id_owid_category) echo "selected";?>><?= $task->category ?></option>
+                    <option>...</option>
                 </select>
+                <!-- <div id="validationServer04Feedback" class="invalid-feedback">
+                    Selecione uma categoria.
+                </div> -->
             </div>
             <div class="col-md-3">
                 <label for="validationServer05" class="form-label">Data para conclusão</label>

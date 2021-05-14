@@ -6,11 +6,11 @@ use App\Models\CategoryModel;
 use App\Models\OwnerModel;
 use App\Models\TaskModel;
 use CodeIgniter\Controller;
-
+use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 
 class Tasks extends Controller
 {
-	private $modelTask  = new TaskModel();
+	
 	public function index()
 	{
 		$model = new TaskModel();
@@ -18,6 +18,19 @@ class Tasks extends Controller
 		$data['tasks'] = $model->getTaskList();
 	}
 
+	public function show($id)
+	{
+		$model = new TaskModel();
+		if ($id === false) {
+            return $model->findAll();
+        }
+		$data['task'] = $model->asArray()
+		->where(['id' => $id])
+		->first();
+		echo view('templates/header', $data);
+		echo view('pages/task', $data);
+		echo view('templates/footer', $data);
+	}
 	public function view($page = 'tasks')
 	{
 		if (!is_file(APPPATH . '/Views/pages/' . $page . '.php')) {
@@ -92,12 +105,15 @@ class Tasks extends Controller
 		echo view('pages/' . $page, $data);
 		echo view('templates/footer', $data);
 	}
-	public function editTask($id)	
+	public function edit($id)	
 	{
-		$task = $this->modelTask;
-		$data['task'] =  $task->find($id);
+
+		$modelTask  = new TaskModel();
+		
+		$data['task'] =  $modelTask->find($id);
+
 		echo view('templates/header', $data);
-		echo view('pages/success', $data);
+		echo view('pages/edit_task', $data);
 		echo view('templates/footer', $data);
 	}
 }
